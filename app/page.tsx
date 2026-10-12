@@ -198,7 +198,7 @@ export default function Home() {
         </section>
 
         {/* Stats strip */}
-        <section className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden border border-border mb-10 fade-up">
+        <section className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden border border-border mb-24 fade-up">
           {stats.map((s) => (
             <div key={s.label} className="bg-card p-6 text-center">
               <div className="font-serif text-3xl sm:text-4xl text-accent leading-none">{s.value}</div>
@@ -207,20 +207,6 @@ export default function Home() {
           ))}
         </section>
 
-        {/* Brand strip */}
-        <section className="mb-24">
-          <p className="text-[11px] font-mono text-muted uppercase tracking-widest text-center mb-5">
-            — Previously at —
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5 opacity-80">
-            {experience.map((job) => (
-              <div key={job.company} className="flex items-center gap-2.5 grayscale hover:grayscale-0 transition">
-                <CompanyLogo domain={job.domain} name={job.company} size="md" />
-                <span className="font-serif text-lg text-foreground/80">{job.company}</span>
-              </div>
-            ))}
-          </div>
-        </section>
 
         {/* ABOUT */}
         <Section id="about" eyebrow="01" title="About" subtitle="Operator-builder from Bengaluru">
