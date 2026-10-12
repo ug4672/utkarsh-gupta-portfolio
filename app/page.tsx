@@ -239,15 +239,25 @@ export default function Home() {
               </p>
             </div>
             <aside className="lg:col-span-5">
-              <blockquote className="relative rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-border p-7">
-                <span className="absolute top-3 left-5 font-serif text-6xl text-accent/30 leading-none">
-                  &ldquo;
-                </span>
-                <p className="relative font-serif italic text-xl text-foreground/85 leading-snug pt-4">
-                  I don&rsquo;t come from an engineering background, but I ship software. The fastest way to
-                  scale growth is to let the operator build the system.
+              <div className="rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-border p-6">
+                <p className="text-[11px] font-mono text-muted uppercase tracking-widest mb-5">
+                  — Companies I&rsquo;ve helped build —
                 </p>
-              </blockquote>
+                <ul className="space-y-4">
+                  {experience.map((job) => (
+                    <li
+                      key={job.company}
+                      className="flex items-center gap-3 pb-4 last:pb-0 border-b border-border/60 last:border-0"
+                    >
+                      <CompanyLogo domain={job.domain} name={job.company} size="md" />
+                      <div className="min-w-0">
+                        <p className="font-serif text-lg leading-tight">{job.company}</p>
+                        <p className="text-xs text-muted mt-0.5">{job.period}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </aside>
           </div>
         </Section>
