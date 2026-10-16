@@ -65,7 +65,7 @@ export default function Drafts() {
           </label>
           <input
             autoFocus
-            type="text"
+            type="password"
             value={input}
             onChange={(e) => {
               setInput(e.target.value);
