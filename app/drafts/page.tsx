@@ -105,9 +105,24 @@ export default function Drafts() {
         </div>
         <button
           onClick={lock}
-          className="text-xs text-muted hover:text-accent underline whitespace-nowrap mt-3"
+          aria-label="Lock"
+          title="Lock"
+          className="mt-3 inline-flex items-center justify-center h-9 w-9 rounded-full border border-border text-muted hover:text-accent hover:border-accent transition flex-shrink-0"
         >
-          Lock
+          <svg
+            viewBox="0 0 24 24"
+            width="16"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <rect x="4" y="11" width="16" height="10" rx="2" />
+            <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+          </svg>
         </button>
       </header>
 
