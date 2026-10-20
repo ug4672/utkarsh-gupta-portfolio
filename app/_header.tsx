@@ -4,12 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const nav = [
-  { href: "#about", label: "About", num: "01" },
-  { href: "#experience", label: "Experience", num: "02" },
-  { href: "#projects", label: "Projects", num: "03" },
-  { href: "#skills", label: "Skills", num: "04" },
-  { href: "#education", label: "Education", num: "05" },
-  { href: "#contact", label: "Contact", num: "06" },
+  { href: "/#about", label: "About", num: "01" },
+  { href: "/#experience", label: "Experience", num: "02" },
+  { href: "/#projects", label: "Projects", num: "03" },
+  { href: "/travel", label: "Travel", num: "04" },
+  { href: "/#contact", label: "Contact", num: "05" },
 ];
 
 export function SiteHeader() {
