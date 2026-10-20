@@ -87,14 +87,14 @@ function CoverLetter() {
       </section>
 
       {error && (
-        <div className="mt-6 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+        <div className="mt-6 rounded-xl border border-red-200 bg-red-50 dark:border-red-900/50 dark:bg-red-950/40 p-4 text-sm text-red-700 dark:text-red-300">
           {error}
         </div>
       )}
 
       {result && (
         <section className="mt-8 space-y-5">
-          <div className="rounded-2xl border border-border bg-gradient-to-br from-amber-50 to-orange-50 p-5">
+          <div className="rounded-2xl border border-border bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/15 dark:to-orange-900/10 p-5">
             <p className="text-[10px] uppercase tracking-wider text-accent font-medium">
               Opening hook
             </p>

@@ -1,20 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
+import { SiteHeader } from "./_header";
 
 const stats = [
   { value: "$3.25M+", label: "ARR driven at Interview Kickstart" },
   { value: "$650M", label: "scaled from zero at BrightCHAMPS" },
   { value: "5+ yrs", label: "operating in high-growth startups" },
   { value: "15+", label: "countries shipped into" },
-];
-
-const nav = [
-  { href: "#about", label: "About", num: "01" },
-  { href: "#experience", label: "Experience", num: "02" },
-  { href: "#projects", label: "Projects", num: "03" },
-  { href: "#skills", label: "Skills", num: "04" },
-  { href: "#education", label: "Education", num: "05" },
-  { href: "#contact", label: "Contact", num: "06" },
 ];
 
 const experience = [
@@ -115,34 +107,7 @@ const skills = [
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Top bar */}
-      <header className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur-md">
-        <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
-          <Link href="#top" className="font-serif text-lg italic text-accent">
-            UG.
-          </Link>
-          <nav className="hidden md:flex items-center gap-7 text-sm">
-            {nav.map((n) => (
-              <Link
-                key={n.href}
-                href={n.href}
-                className="text-foreground/70 hover:text-accent transition flex items-center gap-1.5"
-              >
-                <span className="text-[10px] font-mono text-muted">{n.num}</span>
-                {n.label}
-              </Link>
-            ))}
-          </nav>
-          <Link
-            href="https://cal.com/utkarsh-gupta/30min"
-            target="_blank"
-            rel="noreferrer"
-            className="hidden sm:inline-flex items-center rounded-full bg-foreground text-background px-4 py-2 text-xs font-medium hover:bg-accent transition"
-          >
-            Book a call →
-          </Link>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main id="top" className="mx-auto w-full max-w-6xl px-6 py-16 sm:py-24 flex-1">
         {/* HERO — 2 column */}
@@ -225,7 +190,7 @@ export default function Home() {
               </p>
             </div>
             <aside className="lg:col-span-5">
-              <div className="rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-border p-6">
+              <div className="rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/15 dark:to-orange-900/10 border border-border p-6">
                 <p className="text-[11px] font-mono text-muted uppercase tracking-widest mb-5">
                   — Companies I&rsquo;ve helped build —
                 </p>
@@ -299,7 +264,7 @@ export default function Home() {
                 key={p.name}
                 className="group rounded-2xl border border-border bg-card overflow-hidden hover:border-accent/50 hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-lg flex flex-col"
               >
-                <div className={`h-32 bg-gradient-to-br ${p.gradient} relative flex items-center justify-center overflow-hidden`}>
+                <div className={`h-32 bg-gradient-to-br ${p.gradient} dark:brightness-75 relative flex items-center justify-center overflow-hidden`}>
                   <span className="text-5xl drop-shadow-sm">{p.emoji}</span>
                   <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
                 </div>
@@ -379,7 +344,7 @@ export default function Home() {
 
         {/* CONTACT */}
         <Section id="contact" eyebrow="06" title="Get in touch">
-          <div className="rounded-3xl border border-border bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 p-10 sm:p-14 text-center relative overflow-hidden">
+          <div className="rounded-3xl border border-border bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 dark:from-amber-900/15 dark:via-orange-900/10 dark:to-rose-900/10 p-10 sm:p-14 text-center relative overflow-hidden">
             <div className="absolute -top-20 -left-20 h-60 w-60 rounded-full bg-accent/10 blur-3xl" />
             <div className="absolute -bottom-20 -right-20 h-60 w-60 rounded-full bg-rose-300/20 blur-3xl" />
             <p className="relative font-serif text-3xl sm:text-4xl mb-4 leading-tight max-w-2xl mx-auto">

@@ -91,7 +91,7 @@ function Scanner() {
       </section>
 
       {error && (
-        <div className="mt-6 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+        <div className="mt-6 rounded-xl border border-red-200 bg-red-50 dark:border-red-900/50 dark:bg-red-950/40 p-4 text-sm text-red-700 dark:text-red-300">
           {error}
         </div>
       )}
@@ -105,7 +105,7 @@ function Results({ r }: { r: ScanResult }) {
   return (
     <section className="mt-10 space-y-6">
       {/* Score hero */}
-      <div className="rounded-2xl border border-border bg-gradient-to-br from-amber-50 to-orange-50 p-6 sm:p-8 flex items-center gap-6 flex-wrap">
+      <div className="rounded-2xl border border-border bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/15 dark:to-orange-900/10 p-6 sm:p-8 flex items-center gap-6 flex-wrap">
         <ScoreCircle score={r.overall_score} />
         <div className="min-w-0 flex-1">
           <p className="text-xs font-mono text-muted uppercase tracking-widest mb-1">

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #fbf6ec;
@@ -9,6 +10,23 @@
   --accent-2: #d97d4d;
   --card: #ffffff;
   --border: #e8dfd1;
+  --quote-grad-1: #fffbea;
+  --quote-grad-2: #fff2e0;
+  --quote-grad-3: #ffeae0;
+}
+
+.dark {
+  --background: #1a1512;
+  --background-2: #231a14;
+  --foreground: #f0e6d6;
+  --muted: #9c8977;
+  --accent: #e07a4a;
+  --accent-2: #f09060;
+  --card: #221a15;
+  --border: #3a2e24;
+  --quote-grad-1: #2a1f17;
+  --quote-grad-2: #2e1f14;
+  --quote-grad-3: #321e12;
 }
 
 @theme inline {
@@ -29,22 +47,9 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   background-image:
-    radial-gradient(circle at 15% 10%, rgba(217, 125, 77, 0.08), transparent 40%),
-    radial-gradient(circle at 85% 80%, rgba(180, 83, 42, 0.06), transparent 45%);
+    radial-gradient(circle at 15% 10%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 40%),
+    radial-gradient(circle at 85% 80%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 45%);
   background-attachment: fixed;
-}
-
-.noise {
-  position: relative;
-}
-.noise::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.4;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.6 0 0 0 0 0.4 0 0 0 0 0.2 0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 
 @keyframes fadeUp {
