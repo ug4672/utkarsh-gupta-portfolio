@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SiteHeader } from "./_header";
+import { Reveal, StaggerWords } from "./_reveal";
 
 const stats = [
   { value: "$3.25M+", label: "ARR driven at Interview Kickstart" },
@@ -113,15 +114,33 @@ export default function Home() {
         {/* HERO — 2 column */}
         <section className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-24 fade-up">
           <div className="lg:col-span-8">
-            <p className="font-serif italic text-accent text-lg mb-4">— Hello, I&rsquo;m</p>
+            <p className="font-serif italic text-accent text-lg mb-4 opacity-0 animate-[fadeUp_0.6s_0.1s_ease-out_forwards]">
+              — Hello, I&rsquo;m
+            </p>
             <h1 className="font-serif text-6xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tight">
-              Utkarsh
+              <StaggerWords text="Utkarsh" delay={250} step={0} />
               <br />
-              <span className="italic text-accent">Gupta.</span>
+              <StaggerWords
+                text="Gupta."
+                delay={420}
+                step={0}
+                italicize={["Gupta."]}
+                accent={["Gupta."]}
+              />
             </h1>
             <p className="mt-8 text-xl sm:text-2xl text-foreground/80 leading-snug font-serif max-w-xl">
-              A Growth & Strategy operator who builds acquisition funnels —{" "}
-              <span className="italic text-accent">and the AI tools that run them.</span>
+              <StaggerWords
+                text="A Growth & Strategy operator who builds acquisition funnels —"
+                delay={700}
+                step={55}
+              />{" "}
+              <span className="italic text-accent">
+                <StaggerWords
+                  text="and the AI tools that run them."
+                  delay={1300}
+                  step={55}
+                />
+              </span>
             </p>
             <div className="mt-6 flex items-center gap-2 text-sm text-muted">
               <span className="inline-block h-2 w-2 rounded-full bg-green-500 animate-pulse" />
@@ -141,9 +160,9 @@ export default function Home() {
           </div>
 
           {/* Right: Photo */}
-          <aside className="lg:col-span-4 lg:mt-6 flex justify-center lg:justify-start">
-            <div className="relative w-56 sm:w-64 lg:w-full lg:max-w-[18rem]">
-              <div className="absolute -inset-3 bg-gradient-to-br from-amber-200/50 via-orange-200/40 to-rose-200/30 rounded-full blur-2xl" />
+          <aside className="lg:col-span-4 lg:mt-6 flex justify-center lg:justify-start fade-up [animation-delay:300ms]">
+            <div className="relative w-56 sm:w-64 lg:w-full lg:max-w-[18rem] group">
+              <div className="absolute -inset-3 bg-gradient-to-br from-amber-200/50 via-orange-200/40 to-rose-200/30 rounded-full blur-2xl group-hover:blur-3xl group-hover:scale-105 transition-all duration-700" />
               <div className="relative aspect-square rounded-full overflow-hidden border border-border shadow-xl">
                 <Image
                   src="/utkarsh.jpg"
@@ -151,7 +170,7 @@ export default function Home() {
                   fill
                   priority
                   sizes="(min-width: 1024px) 288px, 256px"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-[800ms] ease-out group-hover:scale-110"
                 />
               </div>
               <div className="absolute -bottom-3 -right-3 rounded-full bg-card border border-border px-3 py-1.5 shadow-md flex items-center gap-2 text-xs">
@@ -163,14 +182,14 @@ export default function Home() {
         </section>
 
         {/* Stats strip */}
-        <section className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden border border-border mb-24 fade-up">
+        <Reveal as="section" delay={200} className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden border border-border mb-24">
           {stats.map((s) => (
             <div key={s.label} className="bg-card p-6 text-center">
               <div className="font-serif text-3xl sm:text-4xl text-accent leading-none">{s.value}</div>
               <div className="mt-3 text-xs text-muted leading-tight">{s.label}</div>
             </div>
           ))}
-        </section>
+        </Reveal>
 
 
         {/* ABOUT */}
@@ -265,7 +284,9 @@ export default function Home() {
                 className="group rounded-2xl border border-border bg-card overflow-hidden hover:border-accent/50 hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-lg flex flex-col"
               >
                 <div className={`h-32 bg-gradient-to-br ${p.gradient} dark:brightness-75 relative flex items-center justify-center overflow-hidden`}>
-                  <span className="text-5xl drop-shadow-sm">{p.emoji}</span>
+                  <span className="text-5xl drop-shadow-sm transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-6">
+                    {p.emoji}
+                  </span>
                   <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
@@ -392,16 +413,18 @@ function Section({
 }) {
   return (
     <section id={id} className="mt-24 scroll-mt-24">
-      <div className="mb-10 flex items-end justify-between gap-4 border-b border-border pb-4">
-        <div>
-          {eyebrow && (
-            <p className="text-xs text-muted font-mono tracking-widest mb-1">— {eyebrow}</p>
-          )}
-          <h2 className="font-serif text-4xl sm:text-5xl">{title}</h2>
-          {subtitle && <p className="text-sm text-muted mt-2 italic">{subtitle}</p>}
+      <Reveal>
+        <div className="mb-10 flex items-end justify-between gap-4 border-b border-border pb-4">
+          <div>
+            {eyebrow && (
+              <p className="text-xs text-muted font-mono tracking-widest mb-1">— {eyebrow}</p>
+            )}
+            <h2 className="font-serif text-4xl sm:text-5xl">{title}</h2>
+            {subtitle && <p className="text-sm text-muted mt-2 italic">{subtitle}</p>}
+          </div>
         </div>
-      </div>
-      {children}
+      </Reveal>
+      <Reveal delay={120}>{children}</Reveal>
     </section>
   );
 }

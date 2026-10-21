@@ -23,10 +23,13 @@ export function SiteHeader() {
             <Link
               key={n.href}
               href={n.href}
-              className="text-foreground/70 hover:text-accent transition flex items-center gap-1.5"
+              className="group text-foreground/70 hover:text-accent transition flex items-center gap-1.5 relative"
             >
-              <span className="text-[10px] font-mono text-muted">{n.num}</span>
-              {n.label}
+              <span className="text-[10px] font-mono text-muted group-hover:text-accent transition">{n.num}</span>
+              <span className="relative">
+                {n.label}
+                <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-accent group-hover:w-full transition-all duration-300 ease-out" />
+              </span>
             </Link>
           ))}
         </nav>
